@@ -4,3 +4,16 @@ on:
     types: [opened]
 permissions: 
   pull-requests: write
+jobs: 
+  welcome:
+    runs-on: ubuntu-latest
+      - name: post comment 
+        uses: actions/github-script@v6
+        with: 
+          scripts: | 
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Welcome to the repository! Mona is happy to see your PR.'
+            })
