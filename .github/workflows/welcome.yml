@@ -2,5 +2,13 @@ name: Post welcome comment
 on:
   pull_request:
     types: [opened]
-permissions: 
+
+permissions:
   pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world
+        run: echo "Mona is checking my code!"
